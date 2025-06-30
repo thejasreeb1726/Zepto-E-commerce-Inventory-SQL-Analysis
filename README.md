@@ -28,50 +28,48 @@ This project was designed to:
 
 ## 📦 Dataset Summary
 
-The dataset contains product-level inventory scraped from the Zepto app (via Kaggle). Each entry represents a SKU with category, price, stock, discount, and size info.
+The dataset contains product-level inventory scraped from the Zepto app (via Kaggle).Each row corresponds to a product SKU (Stock Keeping Unit) and includes pricing, weight, availability, and discount information.
 
-| Column | Description |
-|--------|-------------|
-| `name` | Product Name |
-| `category` | Product Category (Fruits, Snacks, Beverages...) |
-| `mrp` | Maximum Retail Price in ₹ |
-| `discountPercent` | Discount percentage |
-| `discountedSellingPrice` | Final price after discount |
-| `availableQuantity` | Units in stock |
-| `weightInGms` | Weight in grams |
-| `outOfStock` | Boolean for availability |
-| `quantity` | Units per package |
-
+| Column                  | Description                                      |
+|-------------------------|--------------------------------------------------|
+| `Category`              | Product category (e.g., Fruits, Beverages)       |
+| `name`                  | Product name                                     |
+| `mrp`                   | Maximum Retail Price (in paise, needs ₹ convert) |
+| `discountPercent`       | Discount applied on the product (%)              |
+| `discountedSellingPrice`| Price after discount (in paise)                  |
+| `availableQuantity`     | Units available in stock                         |
+| `weightInGms`           | Weight of the product in grams                   |
+| `outOfStock`            | Boolean flag for stock status                    |
+| `quantity`              | Units per package or loose grams                 |
 ---
-
-## 🚦 Workflow Summary
+## 📊 Project Workflow
 
 ### 🔹 1. Table Creation  
-Created a PostgreSQL table using appropriate data types for each column.
+Created a structured PostgreSQL table with correct data types for each column.
 
 ### 🔹 2. Data Import  
-Loaded the CSV using `\copy` command in pgAdmin. Handled UTF-8 encoding issues.
+Used `\copy` in pgAdmin to import the UTF-8 formatted CSV file.
 
 ### 🔹 3. Data Exploration  
-- Viewed sample records  
-- Checked for missing/null values  
-- Identified in-stock vs out-of-stock items  
-- Explored duplicate products (by name and package size)
+- Viewed first few rows and structure  
+- Counted in-stock vs out-of-stock items  
+- Found nulls and zero-price anomalies  
+- Explored category-level product counts
 
 ### 🔹 4. Data Cleaning  
-- Removed rows where `MRP` or `Discounted Price` = 0  
-- Converted prices from paise to rupees  
-- Ensured all numeric and boolean fields were consistent
+- Removed records where MRP or selling price = 0  
+- Converted paise to ₹ for better readability  
+- Checked and handled inconsistent quantity fields
 
-### 🔹 5. Business Insights (SQL Analysis)  
-- 🏷️ Top 10 discounted products  
-- 📉 Out-of-stock items with high MRP  
-- 💰 Revenue potential by category  
-- ❌ Expensive items with low discounts  
-- 📊 Average discount per category  
-- ⚖️ Price per gram analysis  
-- 📦 Grouping by weight: Low, Medium, Bulk  
-- 🧮 Inventory weight by category
+### 🔹 5. Business-Oriented SQL Queries  
+- Top 10 products with highest discounts  
+- Out-of-stock products with highest MRP  
+- Estimated revenue potential by product category  
+- Average discount per category  
+- Price per gram analysis to detect value-for-money products  
+- Total inventory weight grouped by category  
+- Classified products into weight buckets (Low, Medium, Bulk)
 
+---
 
 
