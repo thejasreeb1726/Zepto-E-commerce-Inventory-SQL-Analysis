@@ -1,4 +1,4 @@
-![Zepto SQL Project Banner](https://github.com/yourusername/zepto-SQL-data-analysis-project/assets/banner-image.jpg)
+
 
 # 🛒 Zepto E-commerce Inventory SQL Analysis
 
