@@ -1,6 +1,9 @@
 
 
 # 🛒 Zepto E-commerce Inventory SQL Analysis
+![SQL](https://img.shields.io/badge/Language-SQL-blue)
+![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-336791?logo=postgresql&logoColor=white)
+
 
 A hands-on SQL project analyzing real-world inventory data inspired by **Zepto**, a fast-growing quick-commerce startup in India. This project simulates actual analyst workflows — from raw data to clean insights — to solve business problems with SQL.
 
